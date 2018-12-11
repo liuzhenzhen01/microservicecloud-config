@@ -1,0 +1,56 @@
+spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 8001
+      
+spring:
+  profiles: dev
+  application:
+    name:  microservicecloud-config-dept-client
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloudDB01
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
+eureka:
+  client:
+    service-url:
+      defahltZone: http://localhost:7001/eureka/
+  instance:  #该微服务在eureka上的显示名
+    instance-id: dept-8001.com
+    prefer-ip-address: true    #访问路径可以显示IP地址
+---
+server:
+  port: 8002
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-dept-client
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloudDB02
+    username: root
+    password: 123456   
+    type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+ 
+eureka:
+  client:
+    service-url:
+      defahltZone: http://localhost:7001/eureka/        
+  instance:  #该微服务在eureka上的显示名
+    instance-id: dept-8001.com
+    prefer-ip-address: true    #访问路径可以显示IP地址  
+    
+             
