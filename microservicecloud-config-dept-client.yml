@@ -8,7 +8,7 @@ server:
 spring:
   profiles: dev
   application:
-    name:  microservicecloud-config-dept-client
+    name: microservicecloud-config-dept-client
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/clouddb01
