@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active:dev
+---
+server:
+  port: 7001
+  
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-config-eureka-client
+  
+eureka:
+  instance:
+    hostname: eureka7001.com
+  client:
+    register-with-eureka: false #当前的eureka-server自己不注册进服务列表中
+    fetch-registry: false   #是否从Eureka-Server中获取服务注册信息，默认为true
+    service-url:   #设置与Eureka Server交互的地址,查询服务和注册服务都需要依赖这个地址。
+      defahltZone: http://localhost:7001/eureka/    
+---
+server:
+  port: 7001
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-eureka-client
+eureka:
+  instance:
+    hostname: eureka7001.com
+  client:
+    register-with-eureka: false  #当前的eureka-server自己不注册进服务列表中
+    fetch-registry: false    #是否从Eureka-Server中获取服务注册信息，默认为true
+    service-url:  #设置与Eureka Server交互的地址,查询服务和注册服务都需要依赖这个地址。
+      defahltZone: http://localhost:7001/eureka/    
+    
